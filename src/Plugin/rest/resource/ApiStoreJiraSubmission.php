@@ -28,23 +28,23 @@ class ApiStoreJiraSubmission extends ResourceBase {
     $current_user = \Drupal::currentUser();
     $user = \Drupal\user\Entity\User::load($current_user->id());
     $email = $user->getEmail();
-	
-	if (!empty($email)){
-		$email = $data->email->value;
-	}
-	
+
+    if (empty($email)){
+        $email = $data['email'];
+    }
+
     $config = \Drupal::config('api_store.settings');
     $jira_endpoint = $config->get('jira_endpoint');
 
-    $res = $http_client->request('POST', $jira_endpoint, [
-		'headers' => [
-			'Content-type' => 'application/x-www-form-urlencoded'
-		],
+    $res = $http_client->post($jira_endpoint, [
+        'headers' => [
+            'Content-type' => 'application/x-www-form-urlencoded'
+        ],
         'form_params' => [
             'user' => $email,
             'email' => $email,
-			'summary' => $data->summary->value,
-			'description' => $data->description->value
+            'summary' => $data['summary'],
+            'description' => $data['description']
         ]
     ]);
 
