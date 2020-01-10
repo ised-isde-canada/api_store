@@ -1,8 +1,8 @@
-id: jira_submission
-plugin_id: jira_submission
+id: api_listing
+plugin_id: api_listing
 granularity: method
 configuration:
-  POST:
+  GET:
     supported_formats:
       - json
     supported_auth:

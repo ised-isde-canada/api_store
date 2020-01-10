@@ -57,6 +57,12 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Replicate endpoint'),
       '#default_value' => $config->get('replicate_endpoint'),
     ];
+	
+	$form['jira_endpoint'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Jira submission endpoint'),
+      '#default_value' => $config->get('jira_endpoint'),
+    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -72,6 +78,7 @@ class ApiStoreSettingsForm extends ConfigFormBase {
       ->set('subscriptions_endpoint', $form_state->getValue('subscriptions_endpoint'))
       ->set('logout_endpoint', $form_state->getValue('logout_endpoint'))
       ->set('replicate_endpoint', $form_state->getValue('replicate_endpoint'))
+	  ->set('jira_endpoint', $form_state->getValue('jira_endpoint'))
       ->save();
 
     parent::submitForm($form, $form_state);
