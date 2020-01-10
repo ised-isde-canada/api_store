@@ -13,7 +13,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  *   id = "jira_submission",
  *   label = @Translation("ApiStoreJiraSubmission"),
  *   uri_paths = {
- *     "canonical" = "/api_store/jira_submission"
+ *     "canonical" = "/api_store/jira_submission",
+ *     "https://www.drupal.org/link-relations/create" = "/api_store/jira_submission"
  *   }
  * )
  */
