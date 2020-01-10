@@ -4,7 +4,8 @@ function api_store_uninstall() {
     // FIXME: Hardcoded for now
     $configs = [
         "rest.resource.api_listing",
-        "rest.resource.subscriptions"
+        "rest.resource.subscriptions",
+		"rest.resource.jira_submission"
     ];
 
     // Delete each config using configFactory.
